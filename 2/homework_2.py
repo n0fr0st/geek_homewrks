@@ -1,14 +1,11 @@
-import random
+n = int(input())
+kust_list = list()
+for i in range(n):
+    x = int(input())
+    kust_list.append(x)
 
-def nearest_value(num_list, value):
-    abs_list = list(map(lambda num: abs(num - value), num_list))
-    return num_list[abs_list.index(min(abs_list))]      
-
-lengthN = int(input('lengthn - '))
-num = int(input('num - '))
-num_list = list()
-for i in range(lengthN):
-    num_list.append(random.randrange(1, 10))
-print(num_list)
-print(nearest_value(num_list, num))
-
+res_list = list()
+for i in range(len(kust_list)-1):
+    res_list.append(kust_list[i-1] + kust_list[i] + kust_list[i+1])
+res_list.append(kust_list[-2] + kust_list[-1] + kust_list[0])
+print(max(res_list))
