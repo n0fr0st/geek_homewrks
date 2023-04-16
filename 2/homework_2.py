@@ -1,11 +1,20 @@
-n = int(input())
-kust_list = list()
-for i in range(n):
-    x = int(input())
-    kust_list.append(x)
+import random
+def arr_add():
+    res_list = list()
+    flag = True
+    while flag == True:
+        x = int(random.randrange(-20, 30))
+        res_list.append(x)
+        if len(res_list) > 10:
+            flag = False
+    print(res_list)
+    return res_list
 
-res_list = list()
-for i in range(len(kust_list)-1):
-    res_list.append(kust_list[i-1] + kust_list[i] + kust_list[i+1])
-res_list.append(kust_list[-2] + kust_list[-1] + kust_list[0])
-print(max(res_list))
+def arr_check(x, y, coll):
+    list1 = list()
+    for i in coll:
+        if i >= x and i <= y:
+            list1.append(coll.index(i))
+    return list1
+
+print(arr_check(6, 12, arr_add()))

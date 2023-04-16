@@ -1,10 +1,13 @@
+x = int(input())
+y = int(input())
+z = int(input())
 
+def arrfunc(x, y, z):
+    res_list = list()
+    for i in range(z):
+        res_list.append(x)
+        x = x + y
+    return res_list
 
-ang = set([int(x) for x in input("vvedite chislo - ").split()])
-ang_1 = set([int(x) for x in input("vvedite chislo - ").split()])
-dif_Set = ang & ang_1
-res_set = list(dif_Set)
-res_set.sort()
-for i in res_set:
-    print(i, end=" ")
-
+print(arrfunc(x, y, z))
+    
