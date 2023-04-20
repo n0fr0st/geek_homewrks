@@ -1,13 +1,30 @@
-x = int(input())
-y = int(input())
-z = int(input())
+import re
 
-def arrfunc(x, y, z):
-    res_list = list()
-    for i in range(z):
-        res_list.append(x)
-        x = x + y
-    return res_list
+def resarr(coll, d):
+    res = list()
+    for x in coll:
+        for key in d:
+            x = re.sub(key, d[key], x)
+        res.append(sum(map(int, x)))
+    return res
 
-print(arrfunc(x, y, z))
-    
+def resAnsw(coll):
+    if [i for i in coll if i !=coll[0]]==[]: 
+        print("Парам пам-пам")
+    else:
+        print("Пам парам")
+
+
+mystr = input()
+strArr = list(mystr.split(" "))
+numArr = list()
+d = { '[уеыаоэяию]':'1','[йцкнгшщзхфвпрлджчсмтб-]':'0'}
+numArr = resarr(strArr, d)
+resAnsw(numArr)
+
+
+
+
+
+
+

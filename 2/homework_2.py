@@ -1,20 +1,9 @@
-import random
-def arr_add():
-    res_list = list()
-    flag = True
-    while flag == True:
-        x = int(random.randrange(-20, 30))
-        res_list.append(x)
-        if len(res_list) > 10:
-            flag = False
-    print(res_list)
-    return res_list
-
-def arr_check(x, y, coll):
-    list1 = list()
-    for i in coll:
-        if i >= x and i <= y:
-            list1.append(coll.index(i))
-    return list1
-
-print(arr_check(6, 12, arr_add()))
+def print_operation_table(operation, num_rows=6, num_columns=6):
+    for x in range(1, num_rows + 1):
+        nums = []
+        for y in range(1, num_columns + 1):
+            num = operation(x, y)
+            nums.append(num)
+        print('\t\t'.join([str(x) for x in nums]))
+    
+print_operation_table(lambda x, y: x+y)
